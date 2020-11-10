@@ -1,5 +1,6 @@
 def get_input_init_str(filename, ex):
     f = open(filename, "r")
+    print('Reading: \'' + filename + '\'')
     next_line = f.readline()
     while (next_line != "###### Exercise " + str(ex) + "\n"):
         next_line = f.readline()
