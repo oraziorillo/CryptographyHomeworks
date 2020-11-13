@@ -42,7 +42,6 @@ def phi(N):
     return (N[0]-1)*(N[1]-1)*(N[2]-1)
 
 
-# filename = "test_params/123-params.txt"
 filename = "313423/313423-parameters.txt"
 
 # Initialize problem parameters

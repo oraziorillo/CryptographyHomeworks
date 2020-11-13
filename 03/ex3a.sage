@@ -155,7 +155,6 @@ def find_factors(n, phi_n):
     return None
 
 
-# filename = "test_params/123-params.txt"
 filename = "313423/313423-parameters.txt"
 
 input_init_str = get_input_init_str(filename, ex=3)

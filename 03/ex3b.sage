@@ -70,28 +70,21 @@ def find_plain_msg(e, n, c1, c2):
     # (the parameters of small_roots have been found empirically)
     delta = univ_res.small_roots(beta=1.0, epsilon=0.1)[0]
     
-    # Find the message exploiting the knowledge of the difference between the paddings delta
+    # Find the message M2 exploiting the knowledge of the difference between the paddings delta
     m2 = find_related_message(delta, e, n, c1, c2)
     
-    # Test the possible values of m
-    for m in range(2**Q3b_e):
-        
-        hex_msg = hex(Integer(m2 * pow(2, m)))
-        
-        # If hex_msg is a proper hexadecimal string, print it (it may be the correct message M)
-        try:
-            msg = binascii.unhexlify(hex_msg[2:]).decode('ascii', errors='ignore')
-            print('\'' + msg + '\'\n')
-            
-        except:
-            continue
+    # Finally, remove the padding by multiplying by m
+    k = Integer(Integer(Q3b_N).nbits() // Integer(Q3b_e ** 2))
+    m = 2 ** k
+    hex_msg = (Integer(m2) // m).hex()   
+    msg = binascii.unhexlify(hex_msg).decode()
+    return msg
 
-# filename = "test_params/123-params.txt"
+
 filename = "313423/313423-parameters.txt"
 
 input_init_str = get_input_init_str(filename, ex=3)
 exec(input_init_str)
 
-print('The messages is:')
-find_plain_msg(Q3b_e, Q3b_N, Q3b_c1, Q3b_c2)
+print('The messages is:\n' + find_plain_msg(Q3b_e, Q3b_N, Q3b_c1, Q3b_c2))
 

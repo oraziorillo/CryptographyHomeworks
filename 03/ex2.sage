@@ -2,7 +2,6 @@ import numpy as np
 from itertools import combinations
 from helpers import get_input_init_str
 
-# filename = "test_params/123-params.txt"
 filename = "313423/313423-parameters.txt"
 
 # Initialize problem parameters

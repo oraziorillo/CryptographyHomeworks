@@ -1,2 +1,4 @@
-**/.ipynb_checkpoints/
-
+__pycache__/
+*.sage.py
+**/*.zip
+**/.ipynb_checkpoints
